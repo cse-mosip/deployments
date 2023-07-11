@@ -1,0 +1,11 @@
+trigger:
+  branches:
+    include:
+      - main  # Change this to match your branch name
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: echo Running tests...
+    displayName: 'Run Test Script'
