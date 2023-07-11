@@ -6,6 +6,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-  - script: echo Running tests...
-    displayName: 'Run Test Script'
+jobs:
+  - job: TestJob
+    displayName: 'Run Tests'
+    steps:
+      - script: echo Running tests...
+        displayName: 'Run Test Script'
