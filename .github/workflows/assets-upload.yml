@@ -31,7 +31,7 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v37
         with:
-          files: ./assets
+          files: assets/*
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
