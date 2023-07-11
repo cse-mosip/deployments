@@ -28,7 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Get changed files
-        id: changed-files
+        id: changed-files-specific
         uses: tj-actions/changed-files@v37
         with:
           files: assets/*
