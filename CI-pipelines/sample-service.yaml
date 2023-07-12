@@ -18,7 +18,7 @@ stages:
           - task: Docker@1
             inputs:
               containerregistrytype: 'Container Registry'
-              dockerRegistryEndpoint: 'Docker Hub'
+              dockerRegistryEndpoint: 'mosipmoracse'
               command: 'Build an image'
               dockerFile: './src/sampleDockerfile'
               imageName: '$(ImageName)'
@@ -29,7 +29,7 @@ stages:
           - task: Docker@1
             inputs:
               containerregistrytype: 'Container Registry'
-              dockerRegistryEndpoint: 'Docker Hub'
+              dockerRegistryEndpoint: 'mosipmoracse'
               command: 'Push an image'
               imageName: '$(ImageName)'
             condition: succeeded()
