@@ -27,7 +27,7 @@ jobs:
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
           BLOB_STORAGE_CONTAINER_NAME: ${{ secrets.BLOB_STORAGE_CONTAINER_NAME }}
         run: |
-          echo  environment variables succefully assigned
+          echo  environment variables successfully assigned
       - name: Get changed & added assets
         id: changed-files-specific
         uses: tj-actions/changed-files@v37
