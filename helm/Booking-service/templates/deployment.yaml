@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: mosip-bookig
+spec:
+  selector:
+    matchLabels:
+      app: mosip-bookig
+  replicas: {{ default 1 .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: mosip-bookig
+    spec:
+      containers:
+        - name: mosip-bookig
+          image: {{ .Values.image }}
+          ports:
+            - containerPort: 8080 
+          env:
+          - name: SPRING_APPLICATION_JSON
+            value: '{"spring": {"datasource": {"url": "jdbc:postgresql://52.172.26.72:5432/pgbookingservicedb", "username": "pgbookingserviceuser", "password": "pgbookingservicepw"}}}'

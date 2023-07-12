@@ -1,0 +1,2 @@
+image: ghcr.io/cse-mosip/booking-service:latest
+replicas: 1
