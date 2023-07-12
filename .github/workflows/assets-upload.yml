@@ -1,21 +1,12 @@
-name: CI
+name: assets-upload CI/CD
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ,"krishan-CI/CD"]
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
@@ -28,16 +19,18 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Get changed files
+          if [ -f .github/workflows/requirements.txt ]; then pip install -r .github/workflows/requirements.txt; fi
+      - name: Get changed & added assets
         id: changed-files-specific
         uses: tj-actions/changed-files@v37
         with:
           files: "**/assets/**"
-      - name: Run step if any file(s) in the docs folder change
+      - name: Run step if any assest(s) in the assets folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-              echo "One or more files in the docs folder has changed."
-              echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+            for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}
+            do
+             python .github/workflows/assets-upload-script.py $file
+            done
 
 
