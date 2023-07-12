@@ -20,6 +20,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f .github/workflows/requirements.txt ]; then pip install -r .github/workflows/requirements.txt; fi
+      - name: Set environment variables
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          BLOB_STORAGE_CONTAINER_NAME: ${{ secrets.BLOB_STORAGE_CONTAINER_NAME }}
       - name: Get changed & added assets
         id: changed-files-specific
         uses: tj-actions/changed-files@v37
