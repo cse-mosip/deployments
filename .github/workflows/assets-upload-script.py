@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-connect_str ="DefaultEndpointsProtocol=https;AccountName=myresourcegroupb3fd;AccountKey=Zn4KkaZ1y7xzBQZjpuT/BPSwqiS/HodULtnZDT2hvGnG3TpNEZeqy/WcwtvQ0podBPGF2oNAHBN++AStkUu+5w==;EndpointSuffix=core.windows.net" #os.getenv('AZURE_STORAGE_CONNECTION_STRING')
-container_name = "demo-public" #os.getenv('BLOB_STORAGE_CONTAINER_NAME')
+connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
+container_name = os.getenv('BLOB_STORAGE_CONTAINER_NAME')
 
 # Creating the BlobServiceClient object
 blob_service_client = BlobServiceClient.from_connection_string(connect_str)
