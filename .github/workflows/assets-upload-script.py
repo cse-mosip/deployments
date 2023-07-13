@@ -38,7 +38,7 @@ try:
     except Exception as e:
         # The blob already exists
         print("File already exists in blob storage.")
-        sys.exit(1)
+        sys.exit(0)
         
 
 except Exception as e:
