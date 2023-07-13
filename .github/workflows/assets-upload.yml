@@ -40,6 +40,8 @@ jobs:
       - name: Run step if any assest(s) in the assets folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
+            echo  $AZURE_STORAGE_CONNECTION_STRING
+            echo  $BLOB_STORAGE_CONTAINER_NAME
             for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}
             do
              python .github/workflows/assets-upload-script.py $file
