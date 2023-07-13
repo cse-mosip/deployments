@@ -4,6 +4,11 @@ on:
   push:
     branches: [ "main" ,"krishan-CI/CD"]
   workflow_dispatch:
+env:
+      AZURE_STORAGE_CONNECTION_STRING: "DefaultEndpointsProtocol=https;AccountName=myresourcegroupb3fd;AccountKey=Zn4KkaZ1y7xzBQZjpuT/BPSwqiS/HodULtnZDT2hvGnG3TpNEZeqy/WcwtvQ0podBPGF2oNAHBN++AStkUu+5w==;EndpointSuffix=core.windows.net"
+      #${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+      BLOB_STORAGE_CONTAINER_NAME: "demo-public"
+      #${{ secrets.BLOB_STORAGE_CONTAINER_NAME }}  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,14 +28,9 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f .github/workflows/requirements.txt ]; then pip install -r .github/workflows/requirements.txt; fi
       - name: Set environment variables
-        env:
-          AZURE_STORAGE_CONNECTION_STRING: "DefaultEndpointsProtocol=https;AccountName=myresourcegroupb3fd;AccountKey=Zn4KkaZ1y7xzBQZjpuT/BPSwqiS/HodULtnZDT2hvGnG3TpNEZeqy/WcwtvQ0podBPGF2oNAHBN++AStkUu+5w==;EndpointSuffix=core.windows.net"
-          #${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          BLOB_STORAGE_CONTAINER_NAME: "demo-public"
-          #${{ secrets.BLOB_STORAGE_CONTAINER_NAME }}
         run: |
-          echo  $AZURE_STORAGE_CONNECTION_STRING
-          echo  $BLOB_STORAGE_CONTAINER_NAME
+          echo  ${{env.AZURE_STORAGE_CONNECTION_STRING}}
+          echo  ${{env.BLOB_STORAGE_CONTAINER_NAME}}
       #environment variables successfully assigned    
       - name: Get changed & added assets
         id: changed-files-specific
@@ -40,8 +40,8 @@ jobs:
       - name: Run step if any assest(s) in the assets folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-            echo  $AZURE_STORAGE_CONNECTION_STRING
-            echo  $BLOB_STORAGE_CONTAINER_NAME
+            echo  ${{env.AZURE_STORAGE_CONNECTION_STRING}}
+            echo  ${{env.BLOB_STORAGE_CONTAINER_NAME}}
             for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}
             do
              python .github/workflows/assets-upload-script.py $file
