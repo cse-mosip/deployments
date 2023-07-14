@@ -1,0 +1,15 @@
+name: DB-Service-Deployement-Request
+description: Use this format to request a db that is deployed in AKS cluster
+title: "[DB-Service]: "
+labels: ["db-deployement"]
+assignees:
+  - BanulaKumarage
+body:
+  - type: input
+    id: service
+    attributes:
+      label: Service name
+      description: Enter the service name
+      placeholder: ex. Entry
+    validations:
+      required: true

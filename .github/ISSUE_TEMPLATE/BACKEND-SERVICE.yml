@@ -1,0 +1,56 @@
+name: Backend-Service-Deployement-Request
+description: Use this format to request to deploy your backend service
+title: "[Service]: "
+labels: ["backend-deployement"]
+assignees:
+  - BanulaKumarage
+body:
+  - type: input
+    id: image
+    attributes:
+      label: Image name
+      description: Image should be accessible publicly
+      placeholder: ex. ghcr.io/cse-mosip/booking-service:latest
+    validations:
+      required: true
+  - type: input
+    id: service
+    attributes:
+      label: Service name
+      description: Enter the service name
+      placeholder: ex. booking
+    validations:
+      required: true
+  - type: textarea
+    id: docker-cmd
+    attributes:
+      label: Docker run command
+      value: docker run
+      description: Enter the docker command that use to run the image locally. This command is used to identify the container environment variables
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: db-host
+    attributes:
+      label: Database host
+      description: Provide the database host if db is deployed
+      placeholder: ex. 104.211.212.212
+    validations:
+      required: false
+  - type: input
+    id: db
+    attributes:
+      label: Database name
+      description: Provide the database name if db is deployed
+      placeholder: ex. booking-svc-pgdb
+    validations:
+      required: false
+  - type: input
+    id: baseurl
+    attributes:
+      label: Base url
+      description: Provide the base url of the service to route to service
+      placeholder: ex. booking-service
+    validations:
+      required: true
