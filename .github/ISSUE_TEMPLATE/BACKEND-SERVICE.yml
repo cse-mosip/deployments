@@ -25,6 +25,7 @@ body:
     id: docker-cmd
     attributes:
       label: Docker run command
+      value: docker run
       description: Enter the docker command that use to run the image locally. This command is used to identify the container environment variables
       render: shell
     validations:
