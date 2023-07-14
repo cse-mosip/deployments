@@ -14,12 +14,12 @@ blob_service_client = BlobServiceClient.from_connection_string(connect_str)
 
 try:
     container_client = blob_service_client.get_container_client(container_name)
-    
+
     # Check if the command line argument is provided
     if len(sys.argv) < 2:
         print("Please provide the file path as a command line argument.")
         sys.exit(1)
-    
+
     upload_file_path = sys.argv[1]
     local_file_name = os.path.basename(upload_file_path)
 
@@ -27,6 +27,11 @@ try:
     blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
 
     print("\nUploading to Azure Storage as blob:\n\t" + local_file_name)
+
+    # Check if the blob already exists in the container
+    if blob_client.exists():
+        print("Deleting existing blob...")
+        blob_client.delete_blob()
 
     # Upload the created file
     try:
@@ -36,10 +41,9 @@ try:
         sys.exit(0)
 
     except Exception as e:
-        # The blob already exists
-        print("File already exists in blob storage.")
-        sys.exit(0)
-        
+        print("Error occurred while uploading the file:", e)
+        sys.exit(1)
+
 
 except Exception as e:
     # Container does not exist
