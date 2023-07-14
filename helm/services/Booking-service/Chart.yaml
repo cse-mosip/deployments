@@ -1,5 +1,5 @@
 apiVersion: v2
-name: mosip-registration
+name: mosip-booking
 description: A Helm chart for MOISP-Booking service
 
 
