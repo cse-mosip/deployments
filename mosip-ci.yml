@@ -1,12 +1,12 @@
 trigger:
   branches:
     include:
-      - master  # Change this to match your branch name
+      - master  # Change this to match your release branch name
 
 pool:
   vmImage: 'ubuntu-latest'
 variables:
-  ImageName: 'mosipmoracse/sample-service:$(Build.BuildId)'
+  ImageName: 'mosipmoracse/sample-service:$(Build.BuildId)' # sample-service is the repository name, which has to be added.
 
 stages:
   - stage: Build
