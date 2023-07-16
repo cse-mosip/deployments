@@ -18,3 +18,10 @@ spec:
             name: mosip-booking-svc
             port:
               number: 8080
+      - path: /frontend-service/booking
+        pathType: Prefix
+        backend:
+          service:
+            name: mosip-booking-frontend-svc
+            port:
+              number: 8080

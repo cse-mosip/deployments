@@ -1,0 +1,3 @@
+image: ghcr.io/cse-mosip/booking-ui:latest
+replicas: 1
+service: booking-frontend
