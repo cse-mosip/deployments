@@ -6,7 +6,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 variables:
-  ImageName: 'mosipmoracse/sample-service:$(Build.BuildId)' #set the repository name for your service
+  ImageName: 'mosipmoracse/registration-service:$(Build.BuildId)' #set the repository name for your service
 
 stages:
   - stage: Build
