@@ -1,0 +1,8 @@
+image: banula404/university-entry-service:latest
+replicas: 1
+service: entry
+
+env:
+  host: 104.211.231.84
+  db: entry-svc-pgdb
+  baseurl: entry-service

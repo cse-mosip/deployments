@@ -2,10 +2,10 @@ This repository contains the deployment scripts to deploy services. Currently th
 
 Currently the booking service has deployed.
 
-#### To deploy a backend service.
+#### To deploy a backend/fronend service.
 
 - `cd helm/services/Booking-service`
-- Create `.yaml` file in the following format
+- Create `values.yaml` file in the following format with neccessary attributes.
 
 ```
 image: <image-name>
