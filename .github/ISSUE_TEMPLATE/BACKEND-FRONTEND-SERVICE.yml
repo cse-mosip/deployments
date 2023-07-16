@@ -1,7 +1,7 @@
-name: Backend-Service-Deployement-Request
-description: Use this format to request to deploy your backend service
+name: Backend/Frontend-Service-Deployement-Request
+description: Use this format to request to deploy your backend/frontend service
 title: "[Service]: "
-labels: ["backend-deployement"]
+labels: ["backend/frontend-deployement"]
 assignees:
   - BanulaKumarage
 body:
