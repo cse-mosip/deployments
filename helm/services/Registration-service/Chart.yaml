@@ -1,0 +1,6 @@
+apiVersion: v2
+name: mosip-resgistration
+description: A Helm chart for MOISP-Registration service
+
+
+version: 0.1.0

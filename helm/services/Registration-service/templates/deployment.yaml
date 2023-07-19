@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: mosip-{{ .Values.service }}
+spec:
+  selector:
+    matchLabels:
+      app: mosip-{{ .Values.service }}
+  replicas: {{ default 1 .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: mosip-{{ .Values.service }}
+    spec:
+      containers:
+        - name: mosip-{{ .Values.service }}
+          image: {{ .Values.image }}
+          env:
+            - name: DB_HOST
+              value: 13.71.65.137
+            - name: DB_USER
+              value: pguser
+            - name: DB_NAME
+              value: registration-svc-pgdb
+            - name: DB_PW
+              value: pgpw
+          ports:
+            - containerPort: 8080

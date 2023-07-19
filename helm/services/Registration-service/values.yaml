@@ -1,0 +1,8 @@
+image: mosipmoracse/registration-service:latest
+replicas: 1
+service: registration
+
+env:
+  host: 13.71.65.137
+  db: registration-svc-pgdb
+  baseurl: registration-service
