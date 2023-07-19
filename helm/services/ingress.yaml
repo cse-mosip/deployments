@@ -1,0 +1,41 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mosip-service-ingress
+  namespace: mosip
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+
+
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /booking-service
+        pathType: Prefix
+        backend:
+          service:
+            name: mosip-booking-svc
+            port:
+              number: 8080
+      - path: /frontend-service/booking
+        pathType: Prefix
+        backend:
+          service:
+            name: mosip-booking-frontend-svc
+            port:
+              number: 8080
+      - path: /entry-service
+        pathType: Prefix
+        backend:
+          service:
+            name: mosip-entry-svc
+            port:
+              number: 8080
+      - path: /registration-service
+        pathType: Prefix
+        backend:
+          service:
+            name: mosip-registration-svc
+            port:
+              number: 8080
