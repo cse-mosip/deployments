@@ -5,4 +5,4 @@ service: registration
 env:
   host: 20.124.60.49
   db: registration-svc-pgdb
-  baseurl: registration-service
+  baseurl: /registration-service
