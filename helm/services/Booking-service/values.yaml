@@ -3,6 +3,6 @@ replicas: 1
 service: booking
 
 env:
-  host: 104.211.212.217
+  host: 20.84.36.241
   db: booking-svc-pgdb
-  baseurl: booking-service
+  baseurl: /booking-service
