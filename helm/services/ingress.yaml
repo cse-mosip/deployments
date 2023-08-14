@@ -11,11 +11,11 @@ spec:
   rules:
   - http:
       paths:
-      - path: /booking-service
+      - path: /registration-service
         pathType: Prefix
         backend:
           service:
-            name: mosip-booking-svc
+            name: mosip-registration-svc
             port:
               number: 8080
       - path: /frontend-service/booking
@@ -23,12 +23,5 @@ spec:
         backend:
           service:
             name: mosip-booking-frontend-svc
-            port:
-              number: 8080
-      - path: /entry-service
-        pathType: Prefix
-        backend:
-          service:
-            name: mosip-entry-svc
             port:
               number: 8080

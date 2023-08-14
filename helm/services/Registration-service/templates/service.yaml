@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mosip-{{ .Values.service }}-svc
+spec:
+  selector:
+    app: mosip-{{ .Values.service }}
+  ports:
+    - protocol: TCP
+      port: 8080 
+      targetPort: 8080

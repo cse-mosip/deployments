@@ -18,5 +18,15 @@ spec:
           ports:
             - containerPort: 8080 
           env:
-          - name: SPRING_APPLICATION_JSON
-            value: '{"spring": {"datasource": {"url": "jdbc:postgresql://{{ .Values.env.host }}:5432/{{ .Values.env.db }}", "username": "pguser", "password": "pgpw"}}, "server": {"servlet": {"context-path": "/{{ .Values.env.baseurl }}"}}}'
+          - name: DB_HOST
+            value: '{{ .Values.env.host }}'
+          - name: DB_USER
+            value: 'pguser'
+          - name: DB_NAME
+            value: '{{ .Values.env.db }}'
+          - name: DB_PW
+            value: pgpw
+          - name: BASE_URL
+            value: '{{ .Values.env.baseurl }}'
+          - name: DB_DIALECT
+            value: 'postgres'
