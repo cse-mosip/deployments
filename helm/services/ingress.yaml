@@ -32,3 +32,10 @@ spec:
             name: mosip-booking-svc
             port:
               number: 8080
+      - path: /attendance-service
+        pathType: Prefix
+        backend:
+          service:
+            name: mosip-attendance-svc
+            port:
+              number: 8080
