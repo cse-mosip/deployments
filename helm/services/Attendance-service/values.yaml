@@ -1,0 +1,8 @@
+image: ghcr.io/cse-mosip/attendance-service:latest
+replicas: 1
+service: attendance
+
+env:
+  host: 20.246.154.149
+  db: attendance-svc-pgdb
+  baseurl: /attendance-service

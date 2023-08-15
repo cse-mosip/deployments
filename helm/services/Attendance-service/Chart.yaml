@@ -1,0 +1,6 @@
+apiVersion: v2
+name: mosip-attendance
+description: A Helm chart for MOISP-Attendance service
+
+
+version: 0.1.0
