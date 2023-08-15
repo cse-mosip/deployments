@@ -1,0 +1,6 @@
+apiVersion: v2
+name: mosip-lecture-attendance
+description: A Helm chart for MOISP-Lecture Attendance Frontend service
+
+
+version: 0.1.0
