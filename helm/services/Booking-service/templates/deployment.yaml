@@ -19,4 +19,4 @@ spec:
             - containerPort: 8080
           env:
           - name: SPRING_APPLICATION_JSON
-            value: '{"mosip-auth-service-url": "https://biometric-sdk-svc-docker.onrender.com/upload", "mosip-user-verification-url": "http://20.84.34.69/registration-service/api/public/verify", "spring": {"datasource": {"url": "jdbc:postgresql://{{ .Values.env.host }}:5432/{{ .Values.env.db }}", "username": "pguser", "password": "pgpw"}}, "server": {"servlet": {"context-path": "{{ .Values.env.baseurl }}"}}}'
+            value: '{"mosip-auth-service-url": "https://biometric-sdk-svc-docker.onrender.com/upload", "mosip-registration-service-url": "http://20.84.34.69/registration-service", "spring": {"datasource": {"url": "jdbc:postgresql://{{ .Values.env.host }}:5432/{{ .Values.env.db }}", "username": "pguser", "password": "pgpw"}}, "server": {"servlet": {"context-path": "{{ .Values.env.baseurl }}"}}}'
