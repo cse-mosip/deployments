@@ -46,3 +46,10 @@ spec:
             name: mosip-lec-attendance-frontend-svc
             port:
               number: 8080
+      - path: /entry-service
+        pathType: Prefix
+        backend:
+          service:
+            name: mosip-entry-svc
+            port:
+              number: 8080
