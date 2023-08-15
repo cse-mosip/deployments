@@ -1,2 +1,2 @@
-service: entry
+service: attendance
 storage: 300Mi
