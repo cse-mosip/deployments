@@ -1,0 +1,8 @@
+image: centurion6x/biometric-sdk-svc:latest
+replicas: 1
+service: authentication
+
+env:
+  # host: 20.246.154.149
+  # db: attendance-svc-pgdb
+  baseurl: /authentication-service

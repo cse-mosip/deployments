@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mosip-{{ .Values.service }}
+spec:
+  selector:
+    matchLabels:
+      app: mosip-{{ .Values.service }}
+  replicas: {{ default 1 .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: mosip-{{ .Values.service }}
+    spec:
+      containers:
+        - name: mosip-{{ .Values.service }}
+          image: {{ .Values.image }}
+          ports:
+            - containerPort: 8080
+          env:
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server": {"servlet": {"context-path": "{{ .Values.env.baseurl }}"}}}'
