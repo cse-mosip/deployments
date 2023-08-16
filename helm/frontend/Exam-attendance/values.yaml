@@ -1,3 +1,3 @@
-image: mosipmoracse/exam-attendance-ui:42
+image: akila99g/exam-attendance-ui:latest
 replicas: 1
 service: exam-attendance-frontend
