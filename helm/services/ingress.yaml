@@ -53,3 +53,17 @@ spec:
             name: mosip-entry-svc
             port:
               number: 8080
+      - path: /authentication-service
+        pathType: Prefix
+        backend:
+          service:
+            name: mosip-authentication-svc
+            port:
+              number: 8080
+      - path: /frontend-service/exam-attendance
+        pathType: Prefix
+        backend:
+          service:
+            name: mosip-exam-attendance-frontend-svc
+            port:
+              number: 8080
